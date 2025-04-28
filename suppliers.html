@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suppliers - Grocery Store</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="header">
+    <nav class="navbar">
+      <img src="../Images/logo.png" class="logo" alt="Grocery Store Logo">
+      <ul>
+        <li><button onclick="navigate('dashboard')">Dashboard</button></li>
+        <li><button onclick="navigate('inventory')">Inventory</button></li>
+        <li><button onclick="navigate('orders')">Orders</button></li>
+        <li><button class="active" onclick="navigate('suppliers')">Suppliers</button></li>
+        <li><button onclick="navigate('reports')">Reports</button></li>
+        <li><button onclick="navigate('logout')">Logout</button></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <h1 class="card-title">Supplier Management</h1>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Supplier List</h3>
+          <button class="btn-primary" onclick="showAddSupplierForm()">Add Supplier</button>
+        </div>
+        <div id="loading" style="display: none;">Loading...</div>
+        <table class="data-table" id="suppliers-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Contact</th>
+              <th>Address</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div id="supplierModal" class="modal">
+    <div class="modal-content">
+      <h2 id="supplierModalTitle">Add Supplier</h2>
+      <form id="supplierForm">
+        <label>Name: <input type="text" name="name" required></label>
+        <label>Contact Number: <input type="text" name="contact_number" required></label>
+        <label>Address: <textarea name="address" required></textarea></label>
+        <input type="hidden" name="supplier_id">
+        <button type="submit" class="btn-primary">Save</button>
+        <button type="button" class="btn-primary" onclick="closeModal('supplierModal')">Cancel</button>
+      </form>
+    </div>
+  </div>
+  <footer>
+    <p>© 2025 Grocery Store Inventory Management. All rights reserved. | <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a></p>
+  </footer>
+  <script src="admin.js"></script>
+</body>
+</html>

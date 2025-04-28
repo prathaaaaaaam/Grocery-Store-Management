@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports - Grocery Store</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div id="header">
+    <nav class="navbar">
+      <img src="../Images/logo.png" class="logo" alt="Grocery Store Logo">
+      <ul>
+        <li><button onclick="navigate('dashboard')">Dashboard</button></li>
+        <li><button onclick="navigate('inventory')">Inventory</button></li>
+        <li><button onclick="navigate('orders')">Orders</button></li>
+        <li><button onclick="navigate('suppliers')">Suppliers</button></li>
+        <li><button class="active" onclick="navigate('reports')">Reports</button></li>
+        <li><button onclick="navigate('logout')">Logout</button></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <h1 class="card-title">Analytics Reports</h1>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Sales Over Time</h3>
+          
+          <select id="report-period" onchange="fetchReports()">
+            <option value="7">Last 7 Days</option>
+            <option value="30" selected>Last 30 Days</option>
+            <option value="365">Last Year</option>
+          </select>
+        </div>
+        <div id="loading" style="display: none;">Loading...</div>
+        <div class="chart-container">
+          <canvas id="sales-chart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>© 2025 Grocery Store Inventory Management. All rights reserved. | <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a></p>
+  </footer>
+  <script src="admin.js"></script>
+</body>
+</html>

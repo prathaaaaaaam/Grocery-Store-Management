@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory - Grocery Store</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="header">
+    <nav class="navbar">
+      <img src="../Images/logo.png" class="logo" alt="Grocery Store Logo">
+      <ul>
+        <li><button onclick="navigate('dashboard')">Dashboard</button></li>
+        <li><button class="active" onclick="navigate('inventory')">Inventory</button></li>
+        <li><button onclick="navigate('orders')">Orders</button></li>
+        <li><button onclick="navigate('suppliers')">Suppliers</button></li>
+        <li><button onclick="navigate('reports')">Reports</button></li>
+        <li><button onclick="navigate('logout')">Logout</button></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <h1 class="card-title">Inventory Management</h1>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Product List</h3>
+          <button class="btn-primary" onclick="showAddProductForm()">Add Product</button>
+        </div>
+        <div id="loading" style="display: none;">Loading...</div>
+        <table class="data-table" id="inventory-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div id="productModal" class="modal">
+    <div class="modal-content">
+      <h2 id="modalTitle">Add Product</h2>
+      <form id="productForm">
+        <label>Name: <input type="text" name="name" required></label>
+        <label>Category:
+          <select name="category" required>
+            <option value="Fruits">Fruits</option>
+            <option value="Vegetables">Vegetables</option>
+            <option value="Dairy">Dairy</option>
+            <option value="Bakery">Bakery</option>
+            <option value="Beverages">Beverages</option>
+          </select>
+        </label>
+        <label>Quantity: <input type="number" name="quantity" min="0" required></label>
+        <label>Price: <input type="number" name="price" step="0.01" min="0" required></label>
+        <label>Status:
+          <select name="status" required>
+            <option value="In Stock">In Stock</option>
+            <option value="Low Stock">Low Stock</option>
+            <option value="Out of Stock">Out of Stock</option>
+          </select>
+        </label>
+        <label>Supplier:
+          <select name="supplier_id" required>
+            <!-- Populated dynamically -->
+          </select>
+        </label>
+        <input type="hidden" name="product_id">
+        <button type="submit" class="btn-primary">Save</button>
+        <button type="button" class="btn-primary" onclick="closeModal('productModal')">Cancel</button>
+      </form>
+    </div>
+  </div>
+  <footer>
+    <p>© 2025 Grocery Store Inventory Management. All rights reserved. | <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a></p>
+  </footer>
+  <script src="admin.js"></script>
+</body>
+</html>

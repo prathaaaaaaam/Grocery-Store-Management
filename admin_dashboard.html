@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Grocery Store</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="header">
+    <nav class="navbar">
+      <img src="../Images/logo.png" class="logo" alt="Grocery Store Logo">
+      <ul>
+        <li><button class="active" onclick="navigate('dashboard')">Dashboard</button></li>
+        <li><button onclick="navigate('inventory')">Inventory</button></li>
+        <li><button onclick="navigate('orders')">Orders</button></li>
+        <li><button onclick="navigate('suppliers')">Suppliers</button></li>
+        <li><button onclick="navigate('reports')">Reports</button></li>
+        <li><button onclick="navigate('logout')">Logout</button></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <h1 class="card-title">Admin Dashboard</h1>
+      <div class="dashboard-layout">
+        <div class="sidebar">
+          <div class="card admin-info">
+            <h3 id="admin-name">Admin Name</h3>
+            <p>Grocery Store Manager</p>
+            <p>Role: Administrator</p>
+          </div>
+          <div class="card calendar">
+            <h3>March 2025</h3>
+            <div class="calendar-header">
+              <span>SU</span><span>MO</span><span>TU</span><span>WE</span><span>TH</span><span>FR</span><span>SA</span>
+            </div>
+            <div class="calendar-body" id="calendar-days"></div>
+          </div>
+        </div>
+        <div class="main-content">
+          <div id="loading" style="display: none;">Loading...</div>
+          <div class="dashboard-grid">
+            <div class="card">
+              <h3>Daily Sales</h3>
+              <div class="ring-container">
+                <svg class="ring" width="120" height="120">
+                  <circle class="ring-bg" cx="60" cy="60" r="50" />
+                  <circle class="ring-progress" id="daily-sales-ring" cx="60" cy="60" r="50" />
+                </svg>
+                <div class="ring-text">
+                  <span id="daily-sales">0.00</span>
+                  <p>Today's Target: 50,000</p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Total Products</h3>
+              <div class="ring-container">
+                <svg class="ring" width="120" height="120">
+                  <circle class="ring-bg" cx="60" cy="60" r="50" />
+                  <circle class="ring-progress" id="total-products-ring" cx="60" cy="60" r="50" />
+                </svg>
+                <div class="ring-text">
+                  <span id="total-products">0</span>
+                  <p>Items in Inventory</p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Low Stock</h3>
+              <div class="ring-container">
+                <svg class="ring" width="120" height="120">
+                  <circle class="ring-bg" cx="60" cy="60" r="50" />
+                  <circle class="ring-progress" id="low-stock-ring" cx="60" cy="60" r="50" />
+                </svg>
+                <div class="ring-text">
+                  <span id="low-stock">0</span>
+                  <p>Items Below Threshold</p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Pending Orders</h3>
+              <div class="ring-container">
+                <svg class="ring" width="120" height="120">
+                  <circle class="ring-bg" cx="60" cy="60" r="50" />
+                  <circle class="ring-progress" id="pending-orders-ring" cx="60" cy="60" r="50" />
+                </svg>
+                <div class="ring-text">
+                  <span id="pending-orders">0</span>
+                  <p>Orders to Fulfill</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Recent Orders</h3>
+            <table class="data-table" id="recentOrders">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Customer</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="card">
+            <h3>Inventory Status</h3>
+            <div class="inventory-status">
+              <div class="status-bar">
+                <h4>In Stock</h4>
+                <div class="progress-bar">
+                  <div class="progress" id="in-stock-bar" style="width: 0%;"></div>
+                </div>
+                <span id="in-stock-count">0/0</span>
+              </div>
+              <div class="status-bar">
+                <h4>Low Stock</h4>
+                <div class="progress-bar">
+                  <div class="progress low" id="low-stock-bar" style="width: 0%;"></div>
+                </div>
+                <span id="low-stock-bar-count">0/0</span>
+              </div>
+              <div class="status-bar">
+                <h4>Out of Stock</h4>
+                <div class="progress-bar">
+                  <div class="progress critical" id="out-of-stock-bar" style="width: 0%;"></div>
+                </div>
+                <span id="out-of-stock-count">0/0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>© 2025 Grocery Store Inventory Management. All rights reserved. | <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a></p>
+  </footer>
+  <script src="admin.js"></script>
+</body>
+</html>

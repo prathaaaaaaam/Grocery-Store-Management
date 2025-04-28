@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grocery Store Inventory Management</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="header">
+    <nav class="navbar">
+      <img src="../Images/logo.png" class="logo" alt="Grocery Store Logo">
+      <ul>
+        <li><a href="./Landing.html" class="active">Home</a></li>
+        <li><a href="./About.html">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-content">
+      <h1>Hello <span>Admin</span><br>Welcome To <span id="element"></span></h1>
+      <p>Streamline your grocery store operations with our advanced inventory management system.</p>
+    </div>
+    <div class="login-container">
+      <a href="login.html" class="login-button">Login <span class="arrow">→</span></a>
+    </div>
+  </div>
+  <footer>
+    <p>© 2025 Grocery Store Inventory Management. All rights reserved. | <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a></p>
+  </footer>
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      var typed = new Typed('#element', {
+        strings: ['Grocery Store', 'Inventory', 'Management', 'System'],
+        typeSpeed: 50,
+        loop: true,
+        backSpeed: 25,
+        backDelay: 1000
+      });
+    });
+  </script>
+</body>
+</html>
